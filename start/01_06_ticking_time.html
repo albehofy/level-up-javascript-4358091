@@ -6,17 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ticking Time</title>
+  <style>
+    #clock {
+      font-family:'Courier New', Courier, monospace;
+      font-size: 2em;
+      font-weight: 500;
+      text-align: center;
+    }
+    .local_time {
+      color: #00f
+    }
+    .local_date {
+      color: #f00
+    }
+  </style>
 </head>
 
 <body>
   <!-- To run this file right click the file in the navigation bar and select "Open with live server. Then open the developer tools in the browser and head to the console window."-->
 
   <!-- Use this element to render your clock -->
-  <div id="clock"></div>
+  <div id="clock">
+
+  </div>
 
   <script>
     // Write your code here
-    
+   function updateTime(){
+     window.setInterval(()=>{
+        // clock.textContent = new Date().toLocaleString(); 
+       let date = new Date(); 
+       let localTime = date.toLocaleTimeString(); 
+       let localDate = date.toLocaleDateString(); 
+       clock.innerHTML = `<p class="local_date">Date: ${localDate}</p> <p class="local_time">Time: ${localTime}</p>`
+    },1000)
+   }
+   updateTime()
   </script>
 </body>
 
