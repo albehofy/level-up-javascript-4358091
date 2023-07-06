@@ -34,7 +34,20 @@
       }
     ]
     // Write your code here
+    function vegetarianDeshies(menu){
+      const MENU = document.getElementById('menu')
+      let vegetarianDeshies = [];
+      menu.filter((item) => {
+        if (item.isVegetarian) {
+          vegetarianDeshies.push(item);
+          let li = document.createElement("li")
+          li.innerText = item.name;
+          MENU.append(li)
+        }
+      })
 
+    }
+    vegetarianDeshies(menu)
   </script>
 </body>
 
